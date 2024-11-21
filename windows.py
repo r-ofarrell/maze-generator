@@ -23,3 +23,28 @@ class Window:
 
     def close(self):
         self.window_running = False
+
+    def draw_line(self, line, fill_color: str) -> None:
+        line.draw(self.canvas, fill_color)
+
+
+class Point:
+    def __init__(self, x_coord, y_coord) -> None:
+        self.x_coord = x_coord
+        self.y_coord = y_coord
+
+
+class Line:
+    def __init__(self, point1, point2) -> None:
+        self.point1 = point1
+        self.point2 = point2
+
+    def draw(self, canvas, fill_color: str) -> None:
+        canvas.create_line(
+            self.point1.x_coord,
+            self.point1.y_coord,
+            self.point2.x_coord,
+            self.point2.y_coord,
+            fill=fill_color,
+            width=2,
+        )
